@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ccc;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+@import './lib/class.scss';

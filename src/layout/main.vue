@@ -1,18 +1,20 @@
 <template>
   <div class="main">
-    <router-view />
+    <header-vue />
+    <div class="wrapper">
+      <aside-vue />
+      <div class="content">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+import headerVue from "../components/layout/header.vue";
+import asideVue from "../components/layout/aside.vue";
 </script>
 
-<style>
-.main {
-  padding: 10px;
-  border: 2px solid red;
-}
+<style lang="scss">
+@import "../styles/main.scss";
 </style>

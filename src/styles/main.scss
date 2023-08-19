@@ -1,0 +1,15 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    .wrapper {
+        display: flex;
+        height: calc(100% - 52px);
+        background-color: #ccc;
+        .content {
+            width: calc(100vw - 200px);
+            overflow: auto;
+            padding: 15px;
+        }
+    }
+}

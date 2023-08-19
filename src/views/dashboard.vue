@@ -1,13 +1,9 @@
-<template>
-  <h1>Bosh sahifa</h1>
+<template lang="">
+    Bosh sahifa
 </template>
-
 <script>
-export default {
 
-}
 </script>
-
-<style>
-
+<style lang="scss">
+    
 </style>

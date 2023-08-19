@@ -1,0 +1,15 @@
+@import '../vars/colors.scss';
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $gray;
+    color: #fff;
+    .logo {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}

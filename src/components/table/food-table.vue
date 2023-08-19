@@ -1,0 +1,99 @@
+<template lang="">
+    <el-table :data="foods">
+      <el-table-column type="index" label="#" />
+      <el-table-column prop="product.title" label="Mahsulot nomi" />
+      <el-table-column prop="price" label="Narhi">
+        <template #default="scope">
+          <div>
+            {{scope.row.price.toLocaleString() || 0 }} so'm
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column prop="status" label="Holati">
+        <template #default="scope">
+          <el-popconfirm
+            title="Qarorongiz qat'iymi"
+            @confirm="changeStatus(scope.row._id)"
+          >
+            <template #reference>
+              <el-button :type="scope.row.status == 1 ? `success` : `danger`">
+                <el-icon>
+                  <check v-if="scope.row.status == 1" />
+                  <close v-else />
+                </el-icon>
+              </el-button>
+            </template>
+          </el-popconfirm>
+        </template>
+      </el-table-column>
+      <el-table-column width="100" align="right">
+        <template #default="scope">
+          <el-dropdown>
+            <el-button>
+              <el-icon>
+                <more />
+              </el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="editFood(scope.row._id)">
+                  <el-icon>
+                    <edit />
+                  </el-icon>
+                  Tahrirlash
+                </el-dropdown-item>
+                <el-dropdown-item @click="remove(scope.row._id)">
+                  <el-icon>
+                    <delete />
+                  </el-icon>
+                  O'chirish
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </template>
+      </el-table-column>
+    </el-table>
+  </template>
+  
+  <script setup>
+  const emit = defineEmits([
+    'edit'
+  ])
+  
+  import { useFoodStore } from "../../stores/data/food";
+  import { useDialogStore } from "../../stores/usefull/dialog";
+  import { storeToRefs } from "pinia";
+  const store = useFoodStore();
+  
+  const { foods } = storeToRefs(store);
+  const { status_food, delete_food } = store;
+
+  const dialog = useDialogStore()
+  
+  const changeStatus = (_id) => {
+    status_food(_id);
+  };
+  
+  
+  const editFood = (_id) => {
+    emit('edit', _id)
+    dialog.setToggle(true)
+    dialog.setEditToggle(true)
+  }
+  
+  
+  const remove = (_id) => {
+    if (confirm("Qaroringiz qat`iymi")) {
+      delete_food(_id);
+    }
+  };
+  </script>
+  
+  <style lang="scss">
+  .table-img {
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px;
+  }
+  </style>
+  

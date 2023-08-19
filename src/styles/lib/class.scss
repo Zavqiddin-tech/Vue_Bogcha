@@ -1,0 +1,32 @@
+.d-f {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.text-center {
+    text-align: center;
+}
+.mr-1 {
+    margin-right: 10px;
+}
+.p-tb {
+    padding: 5px 0px;
+} 
+
+.el-full.el-date-editor.el-input,
+.el-full {
+    width: 100%;
+}
+.text-left {
+    text-align: left;
+    &.el-input-number .el-input__inner {
+        text-align: left;
+    }
+}

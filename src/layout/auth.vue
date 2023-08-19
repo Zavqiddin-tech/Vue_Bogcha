@@ -1,15 +1,18 @@
 <template>
-  <div class="auth">
-    <router-view />
-  </div>
+    <div class="auth">
+        <router-view />
+    </div>
 </template>
 
-<script>
-export default {
 
-}
+
+<script setup>
+
 </script>
 
-<style>
 
+
+
+<style lang="scss">
+@import '../styles/views/auth.scss';
 </style>
